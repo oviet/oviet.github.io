@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-div.container {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* The grid: Three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
   text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
 }
 
-ul.myUL {
-  display: inline-block;
-  text-align: left;
+.containerTab {
+  padding: 20px;
+  color: white;
 }
 
-  #more {display: none;}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the container tab */
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h2>How To Center a List</h2>
-  <ul class="myUL"> 
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Coca Cola</li>
-  </ul>
+<div style="text-align:center">
+  <h2>Oviet.Git.IO</h2>
+  <p>Please.. Click on the boxes below:</p>
 </div>
 
-<h2 style="text-align:center;">Read More Read Less Button</h2>
-<p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots1">...</span><span id="more1">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
-<button onclick="myFunction1()" id="myBtn1" text-align="center">Read more</button>
+<!-- Three columns -->
+<div class="row">
+  <div class="column" onclick="openTab('b1');" style="background:green;">
+    Box 1
+  </div>
+  <div class="column" onclick="openTab('b2');" style="background:blue;">
+    Box 2
+  </div>
+  <div class="column" onclick="openTab('b3');" style="background:red;">
+    Box 3
+  </div>
+</div>
+
+<!-- Full-width columns: (hidden by default) -->
+<div id="b1" class="containerTab" style="display:none;background:green">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 1</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
+
+<div id="b2" class="containerTab" style="display:none;background:blue">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 2</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
+
+<div id="b3" class="containerTab" style="display:none;background:red">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <h2>Box 3</h2>
+  <p>Lorem ipsum dolor sit amet, te quo doctus abhorreant, et pri deleniti intellegat, te sanctus inermis ullamcorper nam. Ius error diceret deseruisse ad</p>
+</div>
 
 <script>
-function myFunction1() {
-  var dots = document.getElementById("dots1");
-  var moreText = document.getElementById("more1");
-  var btnText = document.getElementById("myBtn1");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
+function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
   }
+  document.getElementById(tabName).style.display = "block";
 }
 </script>
 
-<h3 style="text-align:center;">Read More Read Less Button</h3>
-<p style="text-align:center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots2">...</span><span id="more2">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
-<button onclick="myFunction2()" id="myBtn2" style="text-align:center;">Read more</button>
-
-<script>
-function myFunction2() {
-  var dots = document.getElementById("dots2");
-  var moreText = document.getElementById("more2");
-  var btnText = document.getElementById("myBtn2");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-}
-</script>
-  
-  
 </body>
-</html>
+</html> 
