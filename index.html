@@ -43,23 +43,15 @@ body {
   cursor: pointer;
 }
 
-footer {
-        position: relative;
-        height: 100px;
-        width: 100%;
-        background-color: #333333;
-    }
-
-    p.copyright {
-        position: absolute;
-        width: 100%;
-        color: #fff;
-        line-height: 40px;
-        font-size: 0.7em;
-        text-align: center;
-        bottom:0;
-    }
-
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
   
 </style>
 </head>
@@ -122,9 +114,10 @@ function openTab(tabName) {
 }
 </script>
 
-<footer>
-    <p class="copyright">© 2024</p>
-</footer>
+<div class="footer">
+  <p>&copy; 2024</p>
+</div>
+  
   
 
 </body>
